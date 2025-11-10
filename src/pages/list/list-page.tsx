@@ -107,7 +107,11 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
               <video
                 // @ts-ignore
                 src={`https://sora2.croudhive.com/upload/${video.id}.mp4`}
+
                 controls
+                // @ts-ignore
+                poster={`https://sora2.croudhive.com/upload/${video.id}_thumnail.png`}
+                
                 className="rounded-lg mb-3 w-full h-70 bg-black"
               />
               <div className={`flex justify-between w-full text-sm ${themeText} mb-2 wrap`}> 
