@@ -9,7 +9,11 @@ Sora 2 Generator is a ready‑to‑use web interface that allows users to ge
 
 ---
 
-[![Watch the video](https://sora2.croudhive.com/upload/video_690efacc76dc81939b89d84c3e608c0b09a4b8173826a611_thumbnail.png)](https://sora2.croudhive.com/upload/video_690efacc76dc81939b89d84c3e608c0b09a4b8173826a611.mp4)
+<a href="https://sora2.croudhive.com/upload/video_690efacc76dc81939b89d84c3e608c0b09a4b8173826a611.mp4">
+  <img src="https://sora2.croudhive.com/upload/video_690efacc76dc81939b89d84c3e608c0b09a4b8173826a611_thumbnail.png" 
+       alt="Watch the video" 
+       style="width:200px; height:auto;">
+</a>
 
 ---
 
