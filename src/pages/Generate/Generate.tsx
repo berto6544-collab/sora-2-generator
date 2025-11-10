@@ -181,8 +181,8 @@ async function checkStatus(videoId) {
       
     } else {
       setProgress(data.progress)
-      setVideoUrl(data.data.url)
-      
+      setVideoUrl(data.url)
+      return
       // do something when completed
     }
   } catch (err) {
