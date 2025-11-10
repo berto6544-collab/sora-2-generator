@@ -99,7 +99,7 @@ export default function VideoWatermarkDownloader() {
       ctx.globalAlpha = 1.0;
     }
 
-    // Update progress
+    // Updating progress
     if (video.duration) setProgress(Math.min((video.currentTime / video.duration) * 100, 100));
 
     rafRef.current = requestAnimationFrame(drawFrame);
@@ -116,7 +116,7 @@ export default function VideoWatermarkDownloader() {
     /* @ts-ignore */
    const videoStream = videoRef.current?.captureStream ? videoRef.current?.captureStream() : null;
 
-  // Combine canvas (video + logo) + original audio
+  // Combining canvas (video + logo) + original audio
   /* @ts-ignore */
   let combinedStream: MediaStream;
   if (videoStream && videoStream.getAudioTracks().length > 0) {

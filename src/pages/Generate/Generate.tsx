@@ -183,11 +183,11 @@ async function checkStatus(videoId) {
       setProgress(data.progress)
       setVideoUrl(data.url)
       return
-      // do something when completed
+      
     }
   } catch (err) {
     console.error("Error checking status:", err);
-    setTimeout(()=>{checkStatus(id)}, 5000); // retry after 5 seconds if failed
+    setTimeout(()=>{checkStatus(id)}, 5000); // retrying after 5 seconds if failed
   }
 }
 
