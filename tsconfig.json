@@ -1,0 +1,13 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "strict": false
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

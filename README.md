@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+# Sora 2 Generator  
+**Create stunning videos from text and images using Sora 2, powered by your own OpenAI API key.**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🚀 What it is  
+Sora 2 Generator is a ready‑to‑use web interface that allows users to generate short, cinematic‑quality videos by providing text prompts and/or reference images. It leverages the underlying Sora 2 engine (developed by OpenAI) and makes it accessible directly in your browser—no installs, no invites, no subscription barriers.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<video style="width:100%; height:450px; object-fit:scale-down;" src="https://sora2.croudhive.com/upload/video_690efacc76dc81939b89d84c3e608c0b09a4b8173826a611.mp4" >
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🎬 Key Features  
+- **Text → Video**: Enter a descriptive prompt and watch it become a short video with motion, lighting, camera movement and more.  
+- **Image Input**: Upload a reference image to guide the style, character, or background of your generated video.  
+- **Social‑Ready Presets**: Select formats such as vertical (9:16), square (1:1) or horizontal (16:9) to suit TikTok, Instagram Reels, YouTube Shorts, etc.  
+- **Browser‑First Workflow**: Everything runs in the browser (via cloud‑backend). Use it instantly without installation.  
+- **OpenAPI‑Key Powered**: Simply provide your own OpenAI API key—no separate plan required.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🎯 Why use it  
+Traditional video production can be expensive, time‑consuming and technically demanding (shooting, editing, sound‑design, etc.). With this tool you can bypass many of those steps: go from concept → prompt/image → finished video in minutes. Ideal for content creators, marketers, designers, indie filmmakers, or anyone wanting to prototype video ideas rapidly.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📌 Use‑cases  
+- Social clips & Reels for TikTok/Instagram/YouTube  
+- Product demos, brand storytelling or short promo videos  
+- Motion‑graphics, concept visuals, short film scenes  
+- Rapid prototyping of video ideas or narrative visualisation  
+- Educational/training content requiring audio + visuals  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧠 How to use  
+1. Visit [sora2.croudhive.com](https://sora2.croudhive.com) and login (or sign‑up) with your OpenAI API key.  
+2. In the interface enter a descriptive prompt: *who / what / where / how*, mention camera movement, lighting, mood, etc.  
+3. (Optional) Upload a reference image to anchor style or character look.  
+4. Select target aspect ratio (16:9, 9:16, 1:1) and generation settings.  
+5. Click **Generate** and wait for the video to render.  
+6. Preview the result and download the video for your project.
+
+---
+
+## 🔧 Technical / Project Details  
+- Built using React (TS) and TailwindCSS for UI styling.  
+- Uses icons from `lucide‐react` (`ArrowBigDown`, `ArrowBigUp`, `Play`, `Pause`, `Film`, `Image`, `Cpu`, `Zap`).  
+- Theme support: dark‑mode and light‑mode (toggle via context).  
+- Uses your OpenAI API key to initiate calls to the Sora 2 model (hosted‑backend).  
+- Output: short videos (e.g., 12 s in example), formats optimized for modern social platforms.  
+- Author: Developed by Roberto D’Amico.
+
+---
+
+## 📝 Prompt Best‑Practice Tips  
+- **Be specific**: describe characters, setting, camera angle/movement, lighting, emotion.  
+- **Mention motion**: e.g., “camera dolly in”, “wide tracking shot”, “slow‑motion pan”.  
+- **Use reference image** when you want consistency in visual style or character design.  
+- **Choose correct format** for your target platform (vertical for mobile, horizontal for YouTube).  
+- **Iterate**: generate → review → tweak prompt/image → regenerate until result matches your vision.
+
+---
+
+## 🧩 Contribution & Next Steps  
+Contributions, feature suggestions, bug‑reports are welcome. If you’d like to help:  
+- Open issues or pull requests in this repo for UI enhancements, backend reliability, prompt workflows, template libraries.  
+- Suggest new presets (aspect ratios, durations, styles).  
+- Add CLI/API endpoints for developers to integrate Sora 2 into workflows or automations.
+
+---
+
+## 📜 License  
+Specify your license (e.g., MIT, Apache 2.0) and terms of use for the generated content.  
+Please verify: output usage rights depend on your OpenAI account and terms.
+
+---
+
+**Enjoy creating immersive videos with Sora 2 Generator — let your ideas move.**
