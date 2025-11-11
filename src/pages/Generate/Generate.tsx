@@ -402,14 +402,14 @@ async function checkStatus(videoId) {
         {videoUrl && (
           <div className="mt-8">
             <h2 className="text-xl font-bold mb-3 text-orange-600">Video Preview</h2>
-            <video ref={videoRef} src={videoUrl} controls className="w-full rounded-2xl shadow-lg mb-4" />
+            <video ref={videoRef} src={videoUrl} controls className="w-full h-[400px] object-scale bg-black rounded-2xl shadow-lg mb-4" />
 
-            <h3 className="text-lg font-semibold mb-2 text-orange-500">Share</h3>
+            {/*<h3 className="text-lg font-semibold mb-2 text-orange-500">Share</h3>
             <div className="flex gap-3 flex-wrap">
               <button onClick={() => shareVideo('TikTok')} className="px-4 py-2 bg-pink-500 text-white rounded-xl shadow hover:bg-pink-600 transition">TikTok</button>
               <button onClick={() => shareVideo('YouTube')} className="px-4 py-2 bg-red-600 text-white rounded-xl shadow hover:bg-red-700 transition">YouTube</button>
               <button onClick={() => shareVideo('Instagram')} className="px-4 py-2 bg-purple-500 text-white rounded-xl shadow hover:bg-purple-600 transition">Instagram</button>
-            </div>
+            </div>*/}
           </div>
         )}
       </div>
