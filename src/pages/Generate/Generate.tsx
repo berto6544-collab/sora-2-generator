@@ -209,23 +209,23 @@ async function checkStatus(videoId) {
 
 
   return (
-    <div className={`${dark?'bg-neutral-950 text-neutral-100':'bg-orange-50 text-neutral-900'} py-30 px-5 flex justify-center`}>
-      <div className={`max-w-6xl w-full border ${dark ? 'bg-neutral-900 border-orange-600/30' : 'bg-orange-100 border-orange-200'} p-8 rounded-3xl `}>
+    <div className={`${dark?'bg-neutral-950 text-neutral-100':'bg-orange-50 text-neutral-900'} py-30 md:px-5 px-2 flex justify-center`}>
+      <div className={`max-w-6xl w-full border ${dark ? 'bg-neutral-900 border-gray-700' : 'bg-white/40 border-gray-300'} md:p-8 p-4 md:rounded-3xl rounded-xl `}>
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-extrabold text-orange-600">Sora 2 Video Generator</h1>
           
         </div>
 
-        <div className="bg-white/10 border border-orange-400/40 rounded-xl p-4 mb-8 text-sm leading-relaxed dark:text-gray-300 text-gray-700">
+        <div className={`bg-white/10 border ${dark?'border-gray-600':'border-gray-300'} rounded-xl p-4 mb-8 text-sm leading-relaxed text-gray-700`}>
           <h2 className="font-semibold text-orange-600 mb-2">How to Use Your OpenAI API Key:</h2>
           <ol className={`list-decimal list-inside ${dark?'text-orange-50':'text-black'} space-y-1`}>
-            <li>Go to <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="text-orange-500 underline">OpenAI API Keys page</a>.</li>
+            <li>Go to <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className={`${dark?'text-gray-200 hover:text-gray-300':'text-gray-600 hover:text-gray-700'} underline`}>OpenAI API Keys page</a>.</li>
             <li>Log in and click <strong>“Create new secret key”</strong>.</li>
             <li>Copy your API key (starts with <code>sk-...</code>).</li>
             <li>Paste it below in the input field labeled “OpenAI API Key”.</li>
             <li>Then, type your prompt and click <strong>Generate Video</strong>.</li>
           </ol>
-          <div className={`flex flex-col items-start pt-4 mt-4 border-t ${dark?'border-neutral-600 text-neutral-200':'border-orange-200/70 text-black'}`}>
+          <div className={`flex flex-col items-start pt-4 mt-4 border-t ${dark?'border-neutral-600 text-neutral-200':'border-gray-300 text-black'}`}>
           <b>💡 Tip:</b>
           Make sure your OpenAI account has enough credits or a payment method added! otherwise, video generation won’t work.
           </div>
@@ -237,7 +237,7 @@ async function checkStatus(videoId) {
             type="password"
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
-            className={`w-full p-3 border rounded-xl ${dark ? 'bg-neutral-800 text-orange-50' : 'bg-orange-50 text-black'} border-orange-500/30 focus:ring-2 focus:ring-orange-600`}
+            className={`w-full p-3 border rounded-xl ${dark ? 'bg-neutral-800 text-orange-50 border-gray-600' : 'bg-gray-100 text-black border-gray-300'} focus:ring-2 focus:ring-orange-600`}
             placeholder="Paste your OpenAI API key here"
           />
         </div>
@@ -247,7 +247,7 @@ async function checkStatus(videoId) {
           <textarea
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            className={`w-full p-3 border rounded-xl ${dark ? 'bg-neutral-800 text-orange-50' : 'bg-orange-50 text-black'} border border-orange-500/30 focus:ring-2 focus:ring-orange-500`}
+            className={`w-full p-3 border rounded-xl ${dark ? 'bg-neutral-800 text-orange-50 border-gray-600' : 'bg-gray-100 text-black border-gray-300'} border focus:ring-2 focus:ring-orange-500`}
             /* @ts-ignore*/
             rows="4"
             placeholder="Describe your scene..."
@@ -329,7 +329,7 @@ async function checkStatus(videoId) {
             value={duration}
             /* @ts-ignore*/
             onChange={(e) => setDuration(e.target.valueAsNumber)}
-            className={`w-full p-3 border rounded-xl ${dark ? 'bg-neutral-800 text-orange-50' : 'bg-orange-50 text-black'} focus:ring-2 focus:ring-orange-500`}
+            className={`w-full p-3 border rounded-xl ${dark ? 'bg-neutral-800 text-orange-50' : 'bg-orange-100 text-black'} focus:ring-2 focus:ring-orange-500`}
             placeholder="Custom Seconds"
           />
         </div>:null}
@@ -356,7 +356,7 @@ async function checkStatus(videoId) {
             onDragOver={handleDragOver}
             /* @ts-ignore*/
             onClick={() => document.getElementById('imageInput').click()}
-            className={`w-full p-6 border-2 border-dashed rounded-xl cursor-pointer text-center hover:border-orange-400 ${dark ? 'bg-neutral-800' : 'bg-orange-50'}`}
+            className={`w-full p-6 border-2 border-dashed rounded-xl cursor-pointer text-center ${dark ? 'bg-neutral-800 border-gray-600 hover:border-gray-500' : 'bg-gray-100 border-gray-300 hover:border-gray-400'}`}
           >
             {imagePreview ? (
               <img src={imagePreview} alt="Preview" className="mx-auto max-h-60 object-contain rounded-lg shadow" />

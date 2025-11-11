@@ -43,7 +43,12 @@ const setTheme = () => {
  {/* @ts-ignore*/}
 return(
     <div className={`w-full ${themeBg} h-15 p-4 flex items-center backdrop-blur-xs gap-2 justify-between fixed top-0 z-10`}>
-        <div></div>
+        <div className={`flex items-center gap-2`}>
+         <a href={'/'} className={`flex gap-2 items-center ${dark?'text-white':'text-black'} border-3 rounded-full border-transparent ${dark?'hover:border-white':'hover:border-black'}`}>
+         <img src={`https://croudhive.com/assets/img/logo.png`} className="w-10" style={{filter:dark?'invert()':''}} />
+         </a>
+
+        </div>
 
         <div className={`flex items-center gap-5`}>
 

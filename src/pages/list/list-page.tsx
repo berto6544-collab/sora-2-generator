@@ -44,8 +44,14 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
       }
 
       const data = await response.json();
+
+       // @ts-ignore
+      if(data.error) return setError(data.details);
+        
       setVideos(data.data || []);
       
+    
+
     } catch (err) {
       // @ts-ignore
       setError(err);
@@ -95,7 +101,7 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
 
       </div>
 
-      {error && <p className="text-red-600 mb-4">⚠️ {error}</p>}
+      {error && <p className="text-red-600 mb-4 w-full flex items-start">⚠️ {error}</p>}
       {loading && <p>Loading videos...</p>}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
