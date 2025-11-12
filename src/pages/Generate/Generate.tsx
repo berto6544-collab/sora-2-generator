@@ -36,7 +36,8 @@ const {dark,setDark} = Auth;
     Instagram: '720x1280',
     YouTube: '1280x720',
     Shorts: '720x1280',
-    Square: '1024x1024'
+    Portrait: '1792×1024',
+    Landscape:'1024x1792',
   };
   const models = ['sora-2','sora-2-pro'];
 
@@ -258,7 +259,7 @@ async function checkStatus(videoId) {
           <div className="w-full flex items-center gap-2 justify-between">
             <div className="w-full flex items-center gap-2 justify-between">
           <label className={`block mb-2 font-medium ${dark?'text-orange-50':'text-black'}`}>Models</label>
-         <span>per sec/${((model == "sora-2"?0.10 : 0.30)).toFixed(2)}</span>
+         <span>per sec/${((platform == "Portrait" || platform == "Landscape"?0.50 : model == "sora-2"?0.10: 0.30)).toFixed(2)}</span>
          
          </div>
           </div>
@@ -293,7 +294,7 @@ async function checkStatus(videoId) {
           <div className="w-full flex items-center gap-2 justify-between">
           <label className={`block mb-2 font-medium ${dark?'text-orange-50':'text-black'}`}>Duration (seconds)</label>
           
-          <span>${(Number(duration) * (model == "sora-2"?0.10 : 0.30)).toFixed(2)}</span>
+          <span>${(Number(duration) * (platform == "Portrait" || platform == "Landscape"?0.50:model == "sora-2"?0.10 : 0.30)).toFixed(2)}</span>
           </div>
           
           <div className="flex gap-3 flex-wrap">
