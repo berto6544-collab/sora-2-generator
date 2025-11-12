@@ -77,7 +77,7 @@ const ENDPOINTS = [
     desc: "Lists videos from OpenAI via the server SDK.",
     headers: [{ name: "Authorization", value: "Bearer <YOUR_OPENAI_API_KEY>" }],
     responses: [
-      { code: 200, body: { data: ["OpenAI video objects"] } },
+      { code: 200, body: { object: 'list', data: ["OpenAI video objects"],next_cursor: 'last_video_id | null', count:'20' } },
       { code: 401, body: { error: "Unauthorized" } },
       { code: 500, body: { error: "Failed to fetch videos" } },
     ],

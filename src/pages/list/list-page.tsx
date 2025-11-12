@@ -1,12 +1,15 @@
 import  React,{ useState} from 'react';
 import { Loader2, Download } from 'lucide-react';
 import AuthApi from '../../components/AuthApi';
+import  InfiniteScroll from 'react-infinite-scroll-component';
+
 
 export default function Sora2VideoList() {
   const [apiKey, setApiKey] = useState(localStorage.getItem('soraApiKey') || '');
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+   const [cursor, setCursor] = useState("");
   // @ts-ignore
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -48,8 +51,9 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
        // @ts-ignore
       if(data.error) return setError(data.details);
         
+      if(data.data.length == 0)return;
       setVideos(data.data || []);
-      
+      setCursor(data?.next_cursor)
     
 
     } catch (err) {
@@ -61,8 +65,53 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
   };
 
 
+  const scrollVideos = async () => {
+  const baseUrl =
+  window.location.hostname === "localhost"
+    ? "http://localhost:4000/app"
+    : "/app";
 
-// @ts-ignore
+    if (!apiKey) {
+      alert('Please enter your API key first.');
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`${baseUrl}/videos?cursor=${cursor}`, {
+        method:'GET',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch videos. Please check your API key.');
+      }
+
+      const data = await response.json();
+
+       // @ts-ignore
+      if(data.error) return //setError(data.details);
+      
+       setCursor(data.next_cursor)
+       if(data.data.length == 0)return;
+      setVideos(videos.concat(data.data || []));
+      
+      
+    
+
+    } catch (err) {
+      // @ts-ignore
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // @ts-ignore
   const handleDownload = async(video) =>{
 
 
@@ -104,7 +153,15 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
       {error && <p className="text-red-600 mb-4 w-full flex items-start">⚠️ {error}</p>}
       {loading && <p>Loading videos...</p>}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
+
+        {/*@ts-ignore*/}
+      <InfiniteScroll
+      dataLength={videos.length} 
+      scrollThreshold={0.8}
+      hasMore={true}
+      next={scrollVideos}
+      
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
         {videos.length > 0 ? (
           videos.map((video) => (
             <div 
@@ -137,7 +194,7 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
         ) : (
           !loading && <p>No videos found.</p>
         )}
-      </div>
+      </InfiniteScroll>
     </div>
   );
 }
