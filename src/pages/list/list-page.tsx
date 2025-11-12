@@ -173,7 +173,7 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
 
                 controls
                 // @ts-ignore
-                poster={`https://sora2.croudhive.com/upload/${video.id}_thumnail.png`}
+                poster={`https://sora2.croudhive.com/upload/${video.id}_thumbnail.webp`}
                 
                 className="rounded-lg mb-3 w-full h-70 bg-black"
               />
