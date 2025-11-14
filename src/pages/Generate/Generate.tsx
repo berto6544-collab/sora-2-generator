@@ -235,7 +235,7 @@ async function checkStatus(videoId) {
           </div>
         </div>
 
-        <div className="mb-6">
+        {apiKey == ""?<div className="mb-6">
           <label className="block mb-2 font-medium">OpenAI API Key</label>
           <input
             type="password"
@@ -244,7 +244,7 @@ async function checkStatus(videoId) {
             className={`w-full p-3 border rounded-xl ${dark ? 'bg-neutral-800 text-orange-50 border-gray-600' : 'bg-gray-100 text-black border-gray-300'} focus:ring-2 focus:ring-orange-600`}
             placeholder="Paste your OpenAI API key here"
           />
-        </div>
+        </div>:null}
 
         <div className="mb-6">
           <label className={`block mb-2 font-medium ${dark?'text-orange-50':'text-black'}`}>Prompt</label>
