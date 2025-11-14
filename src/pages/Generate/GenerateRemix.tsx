@@ -124,7 +124,9 @@ const generateVideo = async () => {
 
     const data = await res.json();
     
+
       if(data){
+      if(data.error) return;
       if(data.status != "completed"){
         setProgress(data.progress)
         setId(data.id)
