@@ -19,6 +19,7 @@ import Footer from "./components/Footer";
 
 
 const GeneratePage = React.lazy(() => import("./pages/Generate/Generate"));
+const GenerateRemixPage = React.lazy(() => import("./pages/Generate/GenerateRemix"));
 const ListPage = React.lazy(() => import("./pages/list/list-page"));
 const WatermarkPage = React.lazy(() => import("./pages/watermark-logo-page/Watermark-logo-page"));
 const LandingPage = React.lazy(() => import("./pages/landing-page/landing-page"));
@@ -170,7 +171,14 @@ const Routess = ({} : {userData:any[]; index:number;}) => {
     <Routes>
        
        
-
+  <Route
+        path={"/sora2/remix/:video_id"}
+        element={
+          
+           <GenerateRemixPage  />
+          
+        }
+      />
      
         <Route
         path={"/sora2/try"}

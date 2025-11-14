@@ -112,14 +112,32 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
   };
 
   // @ts-ignore
-  const handleDownload = async(video) =>{
+const handleDownload = async (e, video) => {
+  e.preventDefault();
+  if (!video) return;
 
+  const fileUrl = `https://sora2.croudhive.com/upload/${video.id}.mp4`;
 
+  try {
+    const response = await fetch(fileUrl);
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
 
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${video.id}.mp4`;
+    a.click();
+
+    window.URL.revokeObjectURL(url);
+  } catch (err) {
+    console.error("Download failed:", err);
   }
+};
+
+  
 
   return (
-    <div className={`${dark ? 'bg-neutral-950 text-neutral-100' : 'bg-orange-50 text-neutral-900'} ${videos.length == 0?'min-h-screen':''} flex flex-col items-center md:p-8 p-3 pt-30`}> 
+    <div className={`${dark ? 'bg-neutral-950 text-neutral-100' : 'bg-orange-50 text-neutral-900'} ${videos.length == 0?'min-h-screen':''} flex flex-col items-center md:p-8 p-3 pt-30 w-full`}> 
       <div className="flex justify-between w-full mb-6 mt-15">
         <h1 className="text-3xl font-bold text-orange-600">View All Generated Videos</h1>
         
@@ -160,13 +178,13 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
       scrollThreshold={0.8}
       hasMore={true}
       next={scrollVideos}
-      
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
+      style={{width:'100%'}}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         {videos.length > 0 ? (
           videos.map((video) => (
             <div 
             // @ts-ignore
-            key={video.id} className={`${dark ? 'bg-neutral-900 border border-orange-600/40' : 'bg-orange-100 border border-orange-200'} rounded-xl p-4 flex flex-col items-center`}> 
+            key={video.id} className={`w-full ${dark ? 'bg-neutral-900 border border-orange-600/40' : 'bg-orange-100 border border-orange-200'} rounded-xl p-4 flex flex-col items-center`}> 
               <video
                 // @ts-ignore
                 src={`https://sora2.croudhive.com/upload/${video.id}.mp4`}
@@ -178,17 +196,18 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
                 className="rounded-lg mb-3 w-full h-70 bg-black"
               />
               <div className={`flex justify-between w-full text-sm ${themeText} mb-2 wrap`}> 
-                {/* @ts-ignore*/}
-                <span style={{wordBreak:'break-all'}}>ID: {video.id}</span>
-                {/* @ts-ignore*/}
-                {/*<span>{new Date(video.created * 1000).toLocaleString()}</span>*/}
+                
               </div>
+
+              <div className={`w-full flex items-center gap-2 justify-between px-2`}>
+                <div></div>
               <button
-                onClick={()=> handleDownload(video)}
-                className="flex items-center gap-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg text-white font-semibold"
+                onClick={(e)=> handleDownload(e,video)}
+                className="flex items-center cursor-pointer gap-2 p-2 rounded-lg text-gray-400 hover:text-gray-500 font-semibold"
               >
-                <Download size={16} /> Download
+                <Download size={20} /> Download
               </button>
+              </div>
             </div>
           ))
         ) : (
