@@ -1,5 +1,5 @@
 import  React,{ useState} from 'react';
-import { Loader2, Download } from 'lucide-react';
+import { Loader2, Download, Clapperboard } from 'lucide-react';
 import AuthApi from '../../components/AuthApi';
 import  InfiniteScroll from 'react-infinite-scroll-component';
 import Cookies from 'js-cookie';
@@ -201,12 +201,22 @@ const handleDownload = async (e, video) => {
 
               <div className={`w-full flex items-center gap-2 justify-between px-2`}>
                 <div></div>
+
+
+                <div className={`flex items-center gap-2`}>
+              <a 
+               // @ts-ignore
+              href={`/sora2/remix/${video.id}`} 
+              className={`flex items-center gap-2 text-gray-400 hover:text-gray-500 font-semibold`} > 
+              <Clapperboard size={20} /> Remix</a>
+
               <button
                 onClick={(e)=> handleDownload(e,video)}
                 className="flex items-center cursor-pointer gap-2 p-2 rounded-lg text-gray-400 hover:text-gray-500 font-semibold"
               >
                 <Download size={20} /> Download
               </button>
+              </div>
               </div>
             </div>
           ))

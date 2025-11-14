@@ -57,7 +57,7 @@ fetch(`https://sora2.croudhive.com/app/videos/${video_id}`,{
     if(response?.data){
       if(response.data.length == 0)return;
       setDataSource(response.data)
-
+      
     }
   });
 
@@ -206,11 +206,11 @@ async function checkStatus(videoId) {
     <div className={`${dark?'bg-neutral-950 text-neutral-100':'bg-orange-50 text-neutral-900'} py-30 md:px-5 px-2 flex justify-center`}>
       <div className={`max-w-6xl w-full border ${dark ? 'bg-neutral-900 border-gray-700' : 'bg-white/40 border-gray-300'} md:p-8 p-4 md:rounded-3xl rounded-xl `}>
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-extrabold text-orange-600">Sora 2 Video Generator</h1>
+          <h1 className="text-3xl font-extrabold text-orange-600">Remix Sora 2 Video</h1>
           
         </div>
 
-        <div className={`bg-white/10 border ${dark?'border-gray-600':'border-gray-300'} rounded-xl p-4 mb-8 text-sm leading-relaxed text-gray-700`}>
+        {/*<div className={`bg-white/10 border ${dark?'border-gray-600':'border-gray-300'} rounded-xl p-4 mb-8 text-sm leading-relaxed text-gray-700`}>
           <h2 className="font-semibold text-orange-600 mb-2">How to Use Your OpenAI API Key:</h2>
           <ol className={`list-decimal list-inside ${dark?'text-orange-50':'text-black'} space-y-1`}>
             <li>Go to <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className={`${dark?'text-gray-200 hover:text-gray-300':'text-gray-600 hover:text-gray-700'} underline`}>OpenAI API Keys page</a>.</li>
@@ -223,17 +223,17 @@ async function checkStatus(videoId) {
           <b>💡 Tip:</b>
           Make sure your OpenAI account has enough credits or a payment method added! otherwise, video generation won’t work.
           </div>
-        </div>
+        </div>*/}
 
 
         {dataSource.length >0?
-        <div className={`w-full flex flex-col items-center gap-2`} >
-          <video src={`https://sora2.croudhive.com/upload/${video_id}`} className={`w-full h-40 bg-black object-scale rounded-lg`}></video>
+        <div className={`w-full flex flex-col items-center gap-2 mb-6`} >
+          <video src={`https://sora2.croudhive.com/upload/${video_id}.mp4`} controls playsInline className={`w-full h-[450px] bg-black object-scale rounded-lg`}></video>
 
         </div>:null}
 
 
-        <div className="mb-6">
+        {apiKey == ""?<div className="mb-6">
           <label className="block mb-2 font-medium">OpenAI API Key</label>
           <input
             type="password"
@@ -242,7 +242,7 @@ async function checkStatus(videoId) {
             className={`w-full p-3 border rounded-xl ${dark ? 'bg-neutral-800 text-orange-50 border-gray-600' : 'bg-gray-100 text-black border-gray-300'} focus:ring-2 focus:ring-orange-600`}
             placeholder="Paste your OpenAI API key here"
           />
-        </div>
+        </div>:null}
 
         <div className="mb-6">
           <label className={`block mb-2 font-medium ${dark?'text-orange-50':'text-black'}`}>Prompt</label>
