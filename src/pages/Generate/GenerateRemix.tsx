@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import AuthApi from '../../components/AuthApi';
 import { useParams } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 
 
@@ -10,7 +11,7 @@ export default function Sora2VideoGeneratorOrange() {
 const {dark,setDark} = Auth;
 const {video_id} = useParams();
 
-  const [apiKey, setApiKey] = useState('');
+  const [apiKey, setApiKey] = useState(Cookies.get('apikey')||'');
   const [prompt, setPrompt] = useState('');
   const [duration, setDuration] = useState('4');
   const [durationType, setDurationType] = useState('4');
@@ -42,8 +43,15 @@ const {video_id} = useParams();
 
 React.useEffect(()=>{
 
+  
+
   if(video_id)
-fetch(`https://sora2.croudhive.com/app/videos/${video_id}`)
+fetch(`https://sora2.croudhive.com/app/videos/${video_id}`,{
+  method:'GET',
+        headers: {
+          'Authorization': Cookies.get('apikey')?`Bearer ${Cookies.get('apikey')}`:'',
+        },
+})
   .then(res=>res.json())
   .then(response=>{
     if(response?.data){

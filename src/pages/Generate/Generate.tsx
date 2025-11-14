@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import AuthApi from '../../components/AuthApi';
-
+import Cookies from 'js-cookie';
 
 
 
@@ -9,7 +9,7 @@ export default function Sora2VideoGeneratorOrange() {
 /* @ts-ignore*/
 const {dark,setDark} = Auth;
 
-  const [apiKey, setApiKey] = useState('');
+  const [apiKey, setApiKey] = useState(Cookies.get('apikey') || '');
   const [prompt, setPrompt] = useState('');
   const [duration, setDuration] = useState('4');
   const [durationType, setDurationType] = useState('4');
@@ -41,7 +41,7 @@ const {dark,setDark} = Auth;
   };
   const models = ['sora-2','sora-2-pro'];
 
- 
+
 
   
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -96,11 +96,14 @@ const generateVideo = async () => {
   try {
 
     const formData = new FormData();
+
+  Cookies.set('apikey',apiKey);
   formData.append("apiKey", apiKey);
   formData.append("prompt", prompt);
   formData.append("duration", duration);
   formData.append("platform", platform);
   formData.append("model", model);
+
   /* @ts-ignore*/
   formData.append("size", platformResolutions[platform]);
   /* @ts-ignore*/

@@ -2,10 +2,10 @@ import  React,{ useState} from 'react';
 import { Loader2, Download } from 'lucide-react';
 import AuthApi from '../../components/AuthApi';
 import  InfiniteScroll from 'react-infinite-scroll-component';
-
+import Cookies from 'js-cookie';
 
 export default function Sora2VideoList() {
-  const [apiKey, setApiKey] = useState(localStorage.getItem('soraApiKey') || '');
+  const [apiKey, setApiKey] = useState(Cookies.get('apikey') || '');
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -54,7 +54,7 @@ const themeText = dark ? 'text-gray-100' : 'text-gray-900';
       if(data.data.length == 0)return;
       setVideos(data.data || []);
       setCursor(data?.next_cursor)
-    
+      Cookies.set('apikey',apiKey)
 
     } catch (err) {
       // @ts-ignore
