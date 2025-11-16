@@ -29,7 +29,7 @@ const {dark,setDark} = Auth;
 
   const durationOptions = {
     'sora-2': ['4', '8', '12'],
-    'sora-2-pro':['5','10','15']
+    'sora-2-pro':['4','8','12']
 
   };
   const platformResolutions = {
