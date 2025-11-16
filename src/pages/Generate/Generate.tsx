@@ -18,7 +18,9 @@ const {dark,setDark} = Auth;
 
   const [progress, setProgress] = useState(null);
   const [id, setId] = useState('');
+    /* @ts-ignore*/
   const [imagePreview, setImagePreview] = useState(null);
+  /* @ts-ignore*/
   const [imageBase64, setImageBase64] = useState(null);
    const [imageFile, setImageFile] = useState(null);
   const [videoUrl, setVideoUrl] = useState('');
@@ -112,30 +114,21 @@ const generateVideo = async () => {
   /* @ts-ignore*/
    formData.append("height", platformResolutions[platform]);
 /* @ts-ignore*/
-  formData.append("image", imageFile); // <-- append the actual File
+if(imageFile != null){
+  /* @ts-ignore*/
+  formData.append("image", imageFile);
+}
 
     const res = await fetch(`${baseUrl}/generate-video`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        apiKey,
-        prompt,
-        duration,
-        platform,
-        /* @ts-ignore*/
-        size:platformResolutions[platform],
-        /* @ts-ignore*/
-        width: platformResolutions[platform].width,
-        /* @ts-ignore*/
-        height: platformResolutions[platform].height,
-        image:imageBase64,
-        model:model
-      })
+      body: formData
     });
 
     const data = await res.json();
     
       if(data){
+      if(data.error) return;
+      
       if(data.status != "completed"){
         setProgress(data.progress)
         setId(data.id)
@@ -354,23 +347,23 @@ async function checkStatus(videoId) {
           </div>
         </div>
 
-        <div className="mb-6">
+        {/*<div className="mb-6">
           <label className={`block mb-2 font-medium ${dark?'text-orange-50':'text-black'}`}>Optional Image Upload</label>
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-            /* @ts-ignore*/
+           
             onClick={() => document.getElementById('imageInput').click()}
             className={`w-full p-6 border-2 border-dashed rounded-xl cursor-pointer text-center ${dark ? 'bg-neutral-800 border-gray-600 hover:border-gray-500' : 'bg-gray-100 border-gray-300 hover:border-gray-400'}`}
           >
-            {imagePreview ? (
+            { /*imagePreview ? (
               <img src={imagePreview} alt="Preview" className="mx-auto max-h-60 object-contain rounded-lg shadow" />
             ) : (
               <p className={`${dark?'text-orange-50':'text-black'}`}>Drag & drop an image here, or click to select</p>
             )}
             <input type="file" accept="image/*" id="imageInput" className="hidden" onChange={handleImageUpload} />
           </div>
-        </div>
+        </div>*/}
 
         {
       progress != null?<div className={`w-full h-8 rounded-md relative overflow-hidden flex items-center bg-orange-50`}>
