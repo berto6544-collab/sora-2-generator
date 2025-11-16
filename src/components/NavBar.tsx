@@ -55,10 +55,9 @@ return(
 
 
            {/* @ts-ignore*/}
-            {/*<a href="https://www.buymeacoffee.com/robie012" target="_blank" className={`border-3 border-transparent overflow-hidden hover:border-orange-600 rounded-lg`}>
-              //@ts-ignore
-            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: '40px',objectFit:'scale-down'}} ></img>
-            </a>*/}
+            {<a href={`/sora2/videos`} className={`border-1 p-2 border-gray-500 overflow-hidden hover:border-orange-600 hover:text-orange-600  rounded-lg`}>
+            View videos
+            </a>}
 
             <a href={'/doc/api'} className={`${dark == false?'text-orange-950 hover:text-orange-600 border-orange-950 hover:border-orange-600':'text-orange-50 hover:text-orange-300 border-orange-50 hover:border-orange-300'}  text-sm rounded-md border p-2`}>API Doc</a>
             {remove == false?<button onClick={() => {

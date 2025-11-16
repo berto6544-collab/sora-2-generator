@@ -232,7 +232,8 @@ async function checkStatus(videoId) {
         {dataSource.length >0?
         <div className={`w-full flex flex-col items-center gap-2 mb-6`} >
           <video src={`https://sora2.croudhive.com/upload/${video_id}.mp4`} controls playsInline className={`w-full h-[450px] bg-black object-scale rounded-lg`}></video>
-
+          {/*@ts-ignore*/}
+          <p>{dataSource[0].prompt}</p>
         </div>:null}
 
 
