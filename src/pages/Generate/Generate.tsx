@@ -352,11 +352,11 @@ async function checkStatus(videoId) {
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-           
+            // @ts-ignore
             onClick={() => document.getElementById('imageInput').click()}
             className={`w-full p-6 border-2 border-dashed rounded-xl cursor-pointer text-center ${dark ? 'bg-neutral-800 border-gray-600 hover:border-gray-500' : 'bg-gray-100 border-gray-300 hover:border-gray-400'}`}
           >
-            { /*imagePreview ? (
+            { imagePreview ? (
               <img src={imagePreview} alt="Preview" className="mx-auto max-h-60 object-contain rounded-lg shadow" />
             ) : (
               <p className={`${dark?'text-orange-50':'text-black'}`}>Drag & drop an image here, or click to select</p>
