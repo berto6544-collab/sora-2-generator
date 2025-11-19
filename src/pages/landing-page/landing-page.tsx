@@ -80,10 +80,10 @@ const {dark,setDark} = Auth;
           <p className={`mt-2 text-center ${themeText}`}>Text-to-video, Image-to-video, multi-resolution exports and social-ready formats.</p>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
-            <FeatureCard themeText={themeText} themePrimary={dark} title="Text → Video" desc="Turn prompts into short, high-quality videos with animated camera movement." icon={<Film className={`text-${themePrimary}`}/>} />
-            <FeatureCard themeText={themeText} themePrimary={dark} title="Image Input" desc="Provide an image to guide the generation character, background, or mood." icon={<Image className={`text-${themePrimary}`}/>} />
-            <FeatureCard themeText={themeText} themePrimary={dark} title="Presets for Social" desc="TikTok, Instagram, YouTube presets (vertical/horizontal) with aspect and bitrate tuned." icon={<Zap className={`text-${themePrimary}`}/>} />
-            <FeatureCard themeText={themeText} themePrimary={dark} title="Local & Fast" desc="Generate in the cloud with free tier access and quick iterations." icon={<Cpu className={`text-${themePrimary}`}/>} />
+            <FeatureCard themeText={themeText} themePrimary={dark} title="Text → Video" desc="Turn prompts into short, high-quality videos with animated camera movement." isComing={false} icon={<Film className={`text-${themePrimary}`}/>} />
+            <FeatureCard themeText={themeText} themePrimary={dark} title="Image Input" desc="Provide an image to guide the generation character, background, or mood." isComing={true} icon={<Image className={`text-${themePrimary}`}/>} />
+            <FeatureCard themeText={themeText} themePrimary={dark} title="Presets for Social" desc="TikTok, Instagram, YouTube presets (vertical/horizontal) with aspect and bitrate tuned." isComing={false} icon={<Zap className={`text-${themePrimary}`}/>} />
+            <FeatureCard themeText={themeText} themePrimary={dark} title="Local & Fast" desc="Generate in the cloud with free tier access and quick iterations." isComing={false} icon={<Cpu className={`text-${themePrimary}`}/>} />
           </div>
         </section>
 
@@ -136,6 +136,7 @@ interface FeatureCardProps {
   icon?: React.ReactNode;
   themePrimary?: string | boolean;
   themeText?: string;
+  isComing?: boolean;
 }
 
 
@@ -145,6 +146,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   icon = null,
   themePrimary = "",
   themeText = "",
+  isComing = false
 }) => {
   return (
     <div className={`${themePrimary?'bg-[#1a120b] text-orange-200':'bg-orange-100 text-orange-600 border border-orange-600/30'} rounded-xl p-6 shadow-sm border border-transparent hover:border-orange-500 transition`}>
@@ -155,7 +157,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         <div>
           <div className="text-lg font-semibold">{title}</div>
           <p className={`mt-2 text-sm ${themeText}`}>{desc}</p>
+          {isComing == true?<p className={`mt-2 ${themeText}`}><b>Coming Soon</b></p>:null}
         </div>
+        
       </div>
     </div>
   );

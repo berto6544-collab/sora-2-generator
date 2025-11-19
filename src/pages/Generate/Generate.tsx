@@ -10,24 +10,24 @@ export default function Sora2VideoGeneratorOrange() {
 /* @ts-ignore*/
 const {dark,setDark} = Auth;
 
-  const [apiKey, setApiKey] = useState(Cookies.get('apikey') || '');
-  const [prompt, setPrompt] = useState('');
-  const [duration, setDuration] = useState('4');
-  const [durationType, setDurationType] = useState('4');
-  const [platform, setPlatform] = useState('TikTok');
+  const [apiKey, setApiKey] = useState<any>(Cookies.get('apikey') || '');
+  const [prompt, setPrompt] = useState<any>('');
+  const [duration, setDuration] = useState<any>('4');
+  const [durationType, setDurationType] = useState<any>('4');
+  const [platform, setPlatform] = useState<any>('TikTok');
 
-  const [progress, setProgress] = useState(null);
-  const [id, setId] = useState('');
+  const [progress, setProgress] = useState<any>(null);
+  const [id, setId] = useState<any>('');
     /* @ts-ignore*/
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState<any>(null);
   /* @ts-ignore*/
-  const [imageBase64, setImageBase64] = useState(null);
-   const [imageFile, setImageFile] = useState(null);
-  const [videoUrl, setVideoUrl] = useState('');
-  const [model,setModel] = useState('sora-2')
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const videoRef = useRef(null);
+  const [imageBase64, setImageBase64] = useState<any>(null);
+   const [imageFile, setImageFile] = useState<any>(null);
+  const [videoUrl, setVideoUrl] = useState<any>('');
+  const [model,setModel] = useState<any>('sora-2')
+  const [error, setError] = useState<any>('');
+  const [loading, setLoading] = useState<any>(false);
+  const videoRef = useRef<any>(null);
 
   const durationOptions = {
     'sora-2': ['4', '8', '12'],

@@ -32,16 +32,16 @@ const APIPage = React.lazy(() => import("./pages/api-page/Api-page"));
 function App() {
 
   
-  const [auth, setAuth] = React.useState("");
-  const [userData, setUserData] = React.useState([]);
-  const [userid, setuserId] = React.useState(0);
-  const [index, setIndex] = React.useState(0);
-  const [theme, setTheme] = React.useState("dark");
-  const [dark, setDark] = React.useState(false);
-  const [isOpen, setisOpen] = React.useState(false);
-  const [remove, setRemove] = React.useState(false);
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [activeTab, setActiveTab] = React.useState('Home');
+  const [auth, setAuth] = React.useState<any>("");
+  const [userData, setUserData] = React.useState<any>([]);
+  const [userid, setuserId] = React.useState<any>(0);
+  const [index, setIndex] = React.useState<any>(0);
+  const [theme, setTheme] = React.useState<any>("dark");
+  const [dark, setDark] = React.useState<any>(false);
+  const [isOpen, setisOpen] = React.useState<any>(false);
+  const [remove, setRemove] = React.useState<any>(false);
+  const [isVisible, setIsVisible] = React.useState<any>(false);
+  const [activeTab, setActiveTab] = React.useState<any>('Home');
   
  
 
@@ -156,6 +156,7 @@ const handleuserData =()=>{
             <NavBar />
             {<Routess index={index} userData={userData.length > 0 ? userData : []} />}
             <Footer />
+
           </React.Suspense>
         </AuthApi.Provider>
     
@@ -166,6 +167,7 @@ const handleuserData =()=>{
 const Routess = ({} : {userData:any[]; index:number;}) => {
  // @ts-ignore
   const Auth = React.useContext(AuthApi);
+  //Auth.setDark(false)
   
   return (
     <Routes>

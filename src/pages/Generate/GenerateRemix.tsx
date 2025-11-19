@@ -8,24 +8,25 @@ import { Clapperboard, Download } from 'lucide-react';
 
 export default function Sora2VideoGeneratorOrange() {
    const Auth = React.useContext(AuthApi);
+   
 /* @ts-ignore*/
 const {dark,setDark} = Auth;
 const {video_id} = useParams();
 
-  const [apiKey, setApiKey] = useState(Cookies.get('apikey')||'');
-  const [prompt, setPrompt] = useState('');
-  const [duration, setDuration] = useState('4');
-  const [durationType, setDurationType] = useState('4');
-  const [platform, setPlatform] = useState('TikTok');
-  const [dataSource, setDataSource] = useState([]);
+  const [apiKey, setApiKey] = useState<any>(Cookies.get('apikey')||'');
+  const [prompt, setPrompt] = useState<any>('');
+  const [duration, setDuration] = useState<any>('4');
+  const [durationType, setDurationType] = useState<any>('4');
+  const [platform, setPlatform] = useState<any>('TikTok');
+  const [dataSource, setDataSource] = useState<any>([]);
 
-  const [progress, setProgress] = useState(null);
-  const [id, setId] = useState('');
-  const [videoUrl, setVideoUrl] = useState('');
-  const [model,setModel] = useState('sora-2')
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const videoRef = useRef(null);
+  const [progress, setProgress] = useState<any>(null);
+  const [id, setId] = useState<any>('');
+  const [videoUrl, setVideoUrl] = useState<any>('');
+  const [model,setModel] = useState<any>('sora-2')
+  const [error, setError] = useState<any>('');
+  const [loading, setLoading] = useState<any>(false);
+  const videoRef = useRef<any>(null);
 
   const durationOptions = {
     'sora-2': ['4', '8', '12'],
