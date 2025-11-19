@@ -347,7 +347,7 @@ async function checkStatus(videoId) {
           </div>
         </div>
 
-        {/*<div className="mb-6">
+        {<div className="mb-6">
           <label className={`block mb-2 font-medium ${dark?'text-orange-50':'text-black'}`}>Optional Image Upload</label>
           <div
             onDrop={handleDrop}
@@ -363,7 +363,7 @@ async function checkStatus(videoId) {
             )}
             <input type="file" accept="image/*" id="imageInput" className="hidden" onChange={handleImageUpload} />
           </div>
-        </div>*/}
+        </div>}
 
         {
       progress != null?<div className={`w-full h-8 rounded-md relative overflow-hidden flex items-center bg-orange-50`}>
