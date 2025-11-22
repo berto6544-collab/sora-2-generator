@@ -22,7 +22,7 @@ Sora 2 Generator is a ready‑to‑use web interface that allows users to ge
 - **Image Input**: Upload a reference image to guide the style, character, or background of your generated video.  
 - **Social‑Ready Presets**: Select formats such as vertical (9:16), square (1:1) or horizontal (16:9) to suit TikTok, Instagram Reels, YouTube Shorts, etc.  
 - **Browser‑First Workflow**: Everything runs in the browser (via cloud‑backend). Use it instantly without installation.  
-- **OpenAPI‑Key Powered**: Simply provide your own OpenAI API key—no separate plan required.
+- **OpenAPI‑Key Powered**: Simply provide your own OpenAI API key no separate plan required.
 
 ---
 
@@ -83,4 +83,4 @@ Please verify: output usage rights depend on your OpenAI account and terms.
 
 ---
 
-**Enjoy creating immersive videos with Sora 2 Generator — let your ideas move.**
+**Enjoy creating immersive videos with Sora 2 Generator let your ideas move.**
