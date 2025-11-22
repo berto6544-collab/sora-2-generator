@@ -4,7 +4,7 @@
 ---
 
 ## 🚀 What it is  
-Sora 2 Generator is a ready‑to‑use web interface that allows users to generate short, cinematic‑quality videos by providing text prompts and/or reference images. It leverages the underlying Sora 2 engine (developed by OpenAI) and makes it accessible directly in your browser—no installs, no invites, no subscription barriers.
+Sora 2 Generator is a ready‑to‑use web interface that allows users to generate short, cinematic‑quality videos by providing text prompts and/or reference images. It leverages the underlying Sora 2 engine (developed by OpenAI) and makes it accessible directly in your browser no installs, no invites, no subscription barriers.
 
 
 ---
