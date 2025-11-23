@@ -222,6 +222,7 @@ async function checkStatus(videoId) {
             <li>Copy your API key (starts with <code>sk-...</code>).</li>
             <li>Paste it below in the input field labeled “OpenAI API Key”.</li>
             <li>Then, type your prompt and click <strong>Generate Video</strong>.</li>
+            <li>Put your <b>OpenAI API Key</b> in a safe place.</li>
           </ol>
           <div className={`flex flex-col items-start pt-4 mt-4 border-t ${dark?'border-neutral-600 text-neutral-200':'border-gray-300 text-black'}`}>
           <b>💡 Tip:</b>

@@ -238,7 +238,7 @@ const Routess = ({} : {userData:any[]; index:number;}) => {
         path={"*"}
         element={
          
-          <div className="min-h-screen pt-40 bg-gradient-to-b from-gray-900 to-black text-white flex flex-col items-center justify-center px-6 py-12">
+          <div className="min-h-screen pt-40 bg-orange-50 text-gray-900 flex flex-col items-center justify-center px-6 py-12">
             <h1 className="text-8xl font-extrabold text-center mb-4 bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
             404
             </h1>
